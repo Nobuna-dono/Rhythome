@@ -19,7 +19,9 @@ namespace Rhythome.Gameplay
         }
         #endregion
 
-        #region PROPERTIES
+        #region PROPERTIES7
+        [Space(10)]
+        [Header("- Rhythmo Station Settings:")]
         [SerializeField]
         private RythmData m_Data;
 

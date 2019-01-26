@@ -10,15 +10,15 @@ namespace Rhythome.Gameplay
     {
         #region PROPERTIES
         [Header("- Rhythm Object Basic Sound:")]
-        [SerializeField, Tooltip("Sound that can be use")]
+        [SerializeField]
         protected AudioClip m_TickSound;
         [SerializeField]
-
-        [Header("- Rhythm Object Settings:")]
         protected AudioClip m_TockSound;
+
+        [Space(10)]
+        [Header("- Rhythm Object Settings (Optional):")]
         [SerializeField]
         protected AudioSource m_Source;
-
         [SerializeField]
         protected Animator m_Animator;
 

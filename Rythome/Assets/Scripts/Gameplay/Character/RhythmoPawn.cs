@@ -25,7 +25,7 @@ namespace Rhythome.Gameplay
         [System.Serializable]
         struct MovementAttribute
         {
-           
+
         }
 
         [System.Serializable]
@@ -38,6 +38,7 @@ namespace Rhythome.Gameplay
         #region PROPERTIES
         /** SERIALIZED VARIABLES
          */
+        [Space(10)]
         [Header("- Rhythmo Pawn Settings:")]
         [SerializeField]
         private GameObject ResponsiveRhythmUI;
@@ -53,8 +54,8 @@ namespace Rhythome.Gameplay
         private float m_MoveValue = 1;
         [SerializeField]
         private bool m_AlwaysEnableTickSound = false;
-		[SerializeField]
-		private float m_MinWorldBound = -1f, m_MaxWorldBound = 1f;
+        [SerializeField]
+        private float m_MinWorldBound = -1f, m_MaxWorldBound = 1f;
 
 
         /** VARIABLES
@@ -72,7 +73,7 @@ namespace Rhythome.Gameplay
             base.Start();
 
             // Animator
-            if(ResponsiveRhythmUI)
+            if (ResponsiveRhythmUI)
             {
                 ResponsiveUIAnimator = ResponsiveRhythmUI.GetComponent<Animator>();
             }
@@ -215,8 +216,8 @@ namespace Rhythome.Gameplay
                 PawnState.SetData((int)(m_CurrentState = ERhythmoPawnState.Idle), m_Animator);
                 return;
             }
-            Vector3 pos = transform.position + new Vector3(_value, 0,0);
-			pos.x = Mathf.Clamp(pos.x, m_MinWorldBound, m_MaxWorldBound);
+            Vector3 pos = transform.position + new Vector3(_value, 0, 0);
+            pos.x = Mathf.Clamp(pos.x, m_MinWorldBound, m_MaxWorldBound);
             transform.position = pos;
 
             m_AnimatorHelper.Update(_value);
@@ -265,7 +266,7 @@ namespace Rhythome.Gameplay
             return hitInfo.collider;
         }
 
-       
+
         #endregion
     }
 }

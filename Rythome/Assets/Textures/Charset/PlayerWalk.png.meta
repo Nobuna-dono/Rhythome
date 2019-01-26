@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 16725abf5dd352944ae215ba476acff2
+guid: db27cee15d3de354eb3934159098f128
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Character_Asset01_0
-    21300002: Character_Asset01_1
-    21300004: Character_Asset01_2
+    21300000: PlayerWalk_0
+    21300002: PlayerWalk_1
+    21300004: PlayerWalk_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -82,43 +82,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Asset01_0
+      name: PlayerWalk_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character_Asset01_1
+      name: PlayerWalk_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character_Asset01_2
+      name: PlayerWalk_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 64
+        width: 85
         height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -52,7 +52,7 @@
 
 			fixed4 frag(v2f i) : SV_Target
 			{
-				if (tex2D(_MainTex, i.uv.xy).r > _OutlineCutoff)
+				if (tex2D(_MainTex, i.uv.xy).a > _OutlineCutoff)
 					discard;
 
 				fixed intensity = 0.0;
@@ -63,7 +63,7 @@
 					for (fixed j = -_OutlineWidth ; j < _OutlineWidth; ++j)
 					{
 						fixed2 offset = fixed2(k, j);
-						intensity += tex2D(_MainTex, i.uv.xy + offset * _MainTex_TexelSize).r;
+						intensity += tex2D(_MainTex, i.uv.xy + offset * _MainTex_TexelSize).a;
 					}
 				}
 

@@ -83,6 +83,7 @@ TextureImporter:
     21300156: Props_21
     21300158: Props_22
     21300160: Props_23
+    21300162: Props_24
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -308,7 +309,7 @@ TextureImporter:
         width: 79
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -378,7 +379,7 @@ TextureImporter:
         width: 128
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -389,7 +390,7 @@ TextureImporter:
         serializedVersion: 2
         x: 213
         y: 192
-        width: 92
+        width: 46
         height: 64
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -588,7 +589,21 @@ TextureImporter:
         width: 127
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Props_24
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 192
+        width: 46
+        height: 60
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

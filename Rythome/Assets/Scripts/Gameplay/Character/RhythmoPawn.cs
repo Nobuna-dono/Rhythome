@@ -38,7 +38,10 @@ namespace Rhythome.Gameplay
         #region PROPERTIES
         /** SERIALIZED VARIABLES
          */
-        [Header("- Animation attributes:")]
+        [Header("- Rhythmo Pawn Settings:")]
+        [SerializeField]
+        private GameObject ResponsiveRhythmUI;
+        private Animator ResponsiveUIAnimator;
 
         [SerializeField, Tooltip("Data synchronized with the state machine.")]
         private StateMachineSyncDataOfInt PawnState;
@@ -46,13 +49,11 @@ namespace Rhythome.Gameplay
         [SerializeField]
         private UAnimationAttributes m_AnimationAttributes;
 
-        [Space(10)]
-        [Header("- Movement attributes:")]
-        [SerializeField]
-        [Range(0, 10)]
-        private int m_MaxInputFrequency;
         [SerializeField]
         private float m_MoveValue = 1;
+        [SerializeField]
+        private bool m_AlwaysEnableTickSound = false;
+
 
         /** VARIABLES
         */
@@ -60,7 +61,6 @@ namespace Rhythome.Gameplay
         private ERhythmoPawnState m_CurrentStateBuffer = ERhythmoPawnState.Idle;
 
         // Animation
-        private Animator m_Animator = null;
         private AnimatorHelper m_AnimatorHelper = null;
         #endregion
 
@@ -70,10 +70,9 @@ namespace Rhythome.Gameplay
             base.Start();
 
             // Animator
-            m_Animator = GetComponent<Animator>();
-            if (m_Animator == null)
+            if(ResponsiveRhythmUI)
             {
-                Debug.Log("Failed to get 'Animator' component.");
+                ResponsiveUIAnimator = ResponsiveRhythmUI.GetComponent<Animator>();
             }
 
             // Animator Helper
@@ -82,39 +81,30 @@ namespace Rhythome.Gameplay
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            if(m_CurrentState == ERhythmoPawnState.FaceDown)
+            RhythmoStation SRStation = collision.gameObject.GetComponent<RhythmoStation>();
+            if (!SRStation)
+                return;
+
+            if (m_CurrentState == ERhythmoPawnState.FaceDown)
             {
-                RhythmoStation SRStation = collision.gameObject.GetComponent<RhythmoStation>();
-                if (SRStation)
+                if (SRStation.ZOrder < ZOrder)
                 {
-                    if (SRStation.ZOrder > ZOrder)
-                    {
-                        SRStation.EnableFeedback(true);
-                        EnableFeedback(true);
-                    }
-                    else
-                    {
-                        SRStation.EnableFeedback(true);
-                        EnableFeedback(true);
-                    }
+                    SRStation.EnableFeedback(true);
+                    EnableFeedback(true);
                 }
             }
             else if (m_CurrentState == ERhythmoPawnState.FaceUp)
             {
-                RhythmoStation SRStation = collision.gameObject.GetComponent<RhythmoStation>();
-                if (SRStation)
+                if (SRStation.ZOrder > ZOrder)
                 {
-                    if (SRStation.ZOrder < ZOrder)
-                    {
-                        SRStation.EnableFeedback(true);
-                        EnableFeedback(true);
-                    }
-                    else
-                    {
-                        SRStation.EnableFeedback(true);
-                        EnableFeedback(true);
-                    }
+                    SRStation.EnableFeedback(true);
+                    EnableFeedback(true);
                 }
+            }
+            else
+            {
+                SRStation.EnableFeedback(false);
+                EnableFeedback(false);
             }
         }
 
@@ -133,12 +123,12 @@ namespace Rhythome.Gameplay
         #region RHYTHOME METHODS
         protected override void Beat()
         {
-            if(m_CurrentStateBuffer != m_CurrentState)
+            if (m_CurrentStateBuffer != m_CurrentState)
             {
                 PawnState.SetData((int)m_CurrentState, m_Animator);
                 m_CurrentStateBuffer = m_CurrentState;
             }
-            switch(m_CurrentState)
+            switch (m_CurrentState)
             {
                 case ERhythmoPawnState.Idle:
                     break;
@@ -155,11 +145,54 @@ namespace Rhythome.Gameplay
                     //FaceUp(-m_MoveValue);
                     break;
             }
+
+            if (m_AlwaysEnableTickSound)
+            {
+                RythmoPlay1();
+            }
+        }
+
+        protected override void HalfBeat()
+        {
+            if (m_CurrentState >= ERhythmoPawnState.FaceDown)
+            {
+                RythmoPlay2();
+            }
+        }
+
+        public override void RythmoPlay1()
+        {
+            if (m_TickSound)
+            {
+                if (m_Source.isPlaying)
+                {
+                    m_Source.Stop();
+                }
+                m_Source.clip = m_TickSound;
+                m_Source.Play();
+            }
+        }
+
+        public override void RythmoPlay2()
+        {
+            if (m_TockSound)
+            {
+                if (m_Source.isPlaying)
+                {
+                    m_Source.Stop();
+                }
+                m_Source.clip = m_TockSound;
+                m_Source.Play();
+            }
         }
 
         public override void EnableFeedback(bool _enable)
         {
-            // Active UI stuff
+            ResponsiveRhythmUI.SetActive(_enable);
+            if (_enable)
+            {
+                ResponsiveUIAnimator.speed = m_Animator.speed;
+            }
         }
         #endregion
 
@@ -180,11 +213,15 @@ namespace Rhythome.Gameplay
                 PawnState.SetData((int)(m_CurrentState = ERhythmoPawnState.Idle), m_Animator);
                 return;
             }
-
             Vector3 pos = transform.position + new Vector3(_value, 0,0);
             transform.position = pos;
 
             m_AnimatorHelper.Update(_value);
+
+            if (!m_AlwaysEnableTickSound)
+            {
+                RythmoPlay1();
+            }
         }
 
         //public void FaceUp(float _value)
@@ -194,7 +231,7 @@ namespace Rhythome.Gameplay
 
         private bool CanMoveForward(float _direction)
         {
-            return !ComputeVerticalRay(_direction);
+            return true;// !ComputeVerticalRay(_direction);
         }
 
         /** HELPERS METHODS
@@ -224,6 +261,8 @@ namespace Rhythome.Gameplay
 
             return hitInfo.collider;
         }
+
+       
         #endregion
     }
 }

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: '[RythmData]_Test'
+  m_Name: Data
   m_EditorClassIdentifier: Assembly-CSharp:Rhythome.Gameplay:RythmData
-  Rythm1: {fileID: 8300000, guid: 6533de4d6a67e2a489b114e4c4f2d4a9, type: 3}
-  Rythm2: {fileID: 8300000, guid: fb104eb12dfeca448abd9db72abcaa9d, type: 3}
-  Rythm3: {fileID: 8300000, guid: 4d299594dd5e77b45b8a8761f98183da, type: 3}
+  Rythm1: {fileID: 0}
+  Rythm2: {fileID: 0}
+  Rythm3: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Rythome.Core
+namespace Rhythome.Core
 {
     [System.Serializable]
     public struct InputBuilder

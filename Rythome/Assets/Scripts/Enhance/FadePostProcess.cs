@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GameData;
 
-namespace Rythome.Enhance
+namespace Rhythome.Enhance
 {
     [ExecuteInEditMode]
     [RequireComponent(typeof(Camera))]

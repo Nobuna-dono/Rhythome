@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: '[RythmData]_Test'
+  m_EditorClassIdentifier: Assembly-CSharp:Rhythome.Gameplay:RythmData
+  Rythm1: {fileID: 8300000, guid: 6533de4d6a67e2a489b114e4c4f2d4a9, type: 3}
+  Rythm2: {fileID: 8300000, guid: fb104eb12dfeca448abd9db72abcaa9d, type: 3}
+  Rythm3: {fileID: 8300000, guid: 4d299594dd5e77b45b8a8761f98183da, type: 3}

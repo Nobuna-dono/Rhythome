@@ -2,64 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rythome
-{
-	[System.Serializable]
-	public struct FEventWrapperAttributes
-	{
-		public List<string> ButtonName;
-		public List<string> AxisName;
-	}
+using Rhythome.Gameplay;
 
-	namespace Core
-	{
-        public enum EGameMode
+namespace Rhythome.Core
+{
+    public enum EGameMode
+    {
+        MainMenu, InGame_Interaction, InGame_Navigation, InMenu
+    }
+
+    public class ServiceSupervisor : MonoBehaviour
+    {
+        #region Internal Properties Field
+        private static ServiceSupervisor m_Instance;
+        public static ServiceSupervisor Instance
         {
-            MainMenu, InGame_Interaction, InGame_Navigation, InMenu
+            get { return m_Instance; }
         }
 
-        public class ServiceSupervisor : MonoBehaviour
+        private EventSupervisor m_Event;
+        public EventSupervisor Event
         {
-            #region Internal Properties Field
-            private static ServiceSupervisor m_Instance;
-            public static ServiceSupervisor Instance
+            get
             {
-                get { return m_Instance; }
-            }
-
-            private EventSupervisor m_EventWrapper;
-            public EventSupervisor EventWrapper
-            {
-                get
+                if (m_Event == null)
                 {
-                    if (m_EventWrapper == null)
-                    {
-                        //DebugWrapper.FLog.PrintError(this, "The Hell ?! Failed to create FEventWrapper ! Please inform a prog.");
-                        return null;
-                    }
-                    return m_EventWrapper;
+                    return null;
                 }
+                return m_Event;
             }
+        }
 
-            //[Header("- Sound Supervisor:")]
-            //public FSoundSupervisor Sound;
-
-            // Temporary !!!
-            [Space(20)]
-            [Header("- State Machine:")]
-            public EGameMode GameMode;
-            #endregion
-
-            void Start()
-			{				
-				m_Instance = FindObjectOfType<ServiceSupervisor>();
-				m_EventWrapper = gameObject.AddComponent<EventSupervisor>();
-				//m_EventWrapper.Initialize(m_EventWrapperAttributes.ButtonName, m_EventWrapperAttributes.AxisName);
-
+        [SerializeField]
+        private RhythmoSupervisor m_Rythm = null;
+        public RhythmoSupervisor Rythm
+        {
+            get
+            {
+                if (m_Rythm == null)
+                {
+                    return null;
+                }
+                return m_Rythm;
             }
+        }
 
-			void Update()
-			{}
-		}
-	}
+        //public FSoundSupervisor Sound;
+
+        // Temporary !!!
+        [Space(20)]
+        [Header("- State Machine:")]
+        public EGameMode GameMode;
+        #endregion
+
+        void Start()
+        {
+            m_Instance = FindObjectOfType<ServiceSupervisor>();
+            m_Event = gameObject.AddComponent<EventSupervisor>();
+
+            if ((m_Rythm = GetComponent<RhythmoSupervisor>()) == null)
+            {
+                m_Rythm = gameObject.AddComponent<RhythmoSupervisor>();
+            }
+        }
+    }
 }

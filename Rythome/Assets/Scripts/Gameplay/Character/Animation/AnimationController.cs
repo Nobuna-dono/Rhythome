@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Rythome.Character
+namespace Rhythome.Gameplay
 {
     public enum StateMachineType
     {
@@ -51,7 +51,7 @@ namespace Rythome.Character
             }
             else
             {
-                Debug.LogError("Invalid StateMachine Parameters name '" + ParameterName + "' passed !");
+                Debug.LogWarning("Invalid StateMachine Parameters name '" + ParameterName + "' passed !");
             }
         }
     }
@@ -68,7 +68,7 @@ namespace Rythome.Character
             }
             else
             {
-                Debug.LogError("Invalid StateMachine Parameters name '" + ParameterName + "' passed !");
+                Debug.LogWarning("Invalid StateMachine Parameters name '" + ParameterName + "' passed !");
             }
         }
     }

@@ -4,7 +4,21 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Rythome.Core
+/*
+ V.1.0 by Lukas Tamayo
+
+                This EventSupervisor should work on any Unity Project, 
+it has been made to take care of each and every input in the game and throw an
+		event when it detects that the button has been pressed or released... 
+		Axis also throw an event when it goes from a 0 value to a
+								negative one.
+                        (And now lot of mores ;) )
+	It goes without saying that every interested parties should be able to
+									acces it
+                                    V.3.3!
+*/
+
+namespace Rhythome.Core
 {
     public static class ActionExtension
     {
@@ -71,13 +85,13 @@ namespace Rythome.Core
                 }
                 else if (bPositivePressed)
                 {
-                    if (OnPositiveReleasedEvent != null && Input.GetButtonUp(Name))
+                    if (OnPositiveReleasedEvent != null && !Input.GetButtonDown(Name))
                         OnPositiveReleasedEvent.SafeCall();
                     bPositivePressed = false;
                 }
                 else if (bNegativePressed)
                 {
-                    if (OnNegativeReleasedEvent != null && Input.GetButtonUp(Name))
+                    if (OnNegativeReleasedEvent != null && !Input.GetButtonDown(Name))
                         OnNegativeReleasedEvent.SafeCall();
                     bNegativePressed = false;
                 }
@@ -364,7 +378,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Buttons[i].OnPositivePressedEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Buttons[i].OnNegativePressedEvent += _func.Invoke;
                 }
             }
@@ -376,7 +390,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Axis[i].OnPositivePressedEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Axis[i].OnNegativePressedEvent += _func.Invoke;
                 }
             }
@@ -390,7 +404,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Buttons[i].OnPositiveStayEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Buttons[i].OnNegativeStayEvent += _func.Invoke;
                 }
             }
@@ -402,7 +416,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Axis[i].OnPositiveStayEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Axis[i].OnNegativeStayEvent += _func.Invoke;
                 }
             }
@@ -416,7 +430,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Buttons[i].OnPositiveReleasedEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Buttons[i].OnNegativeReleasedEvent += _func.Invoke;
                 }
             }
@@ -428,7 +442,7 @@ namespace Rythome.Core
                 {
                     if (_type == EButtonType.Positive || _type == EButtonType.Both)
                         m_Axis[i].OnPositiveReleasedEvent += _func.Invoke;
-                    else if (_type == EButtonType.Negative || _type == EButtonType.Both)
+                    if (_type == EButtonType.Negative || _type == EButtonType.Both)
                         m_Axis[i].OnNegativeReleasedEvent += _func.Invoke;
                 }
             }

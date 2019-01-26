@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using Rythome.Core;
+using Rhythome.Core;
 
-namespace Rythome.Character
+namespace Rhythome.Gameplay
 {
     public class PlayerController : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Rythome.Character
         {
             foreach (InputSelector input in InputBuilder.inputList)
             {
-                ServiceSupervisor.Instance.EventWrapper.AddButtonListener(input.InputName, input.State, input.Type, input.Event);
+                ServiceSupervisor.Instance.Event.AddButtonListener(input.InputName, input.State, input.Type, input.Event);
             }
         }
     }

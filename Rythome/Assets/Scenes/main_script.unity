@@ -113,6 +113,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &40488593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 40488594}
+  - component: {fileID: 40488595}
+  m_Layer: 0
+  m_Name: SPR_Cindy_Smith_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &40488594
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40488593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 411059813}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &40488595
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40488593}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300008, guid: 8543aa514191d254dbde0d63d3e296ce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.56, y: 0.98}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &204434505
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204434507}
   - component: {fileID: 204434506}
+  - component: {fileID: 204434508}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -140,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1093c0a132c8dac4aa4a7d7ad530c07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Rythm: {fileID: 0}
   GameMode: 0
 --- !u!4 &204434507
 Transform:
@@ -154,6 +229,92 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &204434508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204434505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1689b88373b72648b85aa99c812cd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BPM: 60
+--- !u!1 &411059811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 411059813}
+  - component: {fileID: 411059812}
+  m_Layer: 0
+  m_Name: New Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &411059812
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411059811}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &411059813
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411059811}
+  m_LocalRotation: {x: -0, y: 0, z: -0.8131517, w: -0.58205175}
+  m_LocalPosition: {x: -2.523, y: -1.375, z: 0.0062775565}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 40488594}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -251.19}
 --- !u!1 &665825859
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +328,7 @@ GameObject:
   - component: {fileID: 665825861}
   - component: {fileID: 665825860}
   - component: {fileID: 665825865}
+  - component: {fileID: 665825866}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -187,36 +349,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputBuilder:
     inputList:
-    - DescriptiveName: 
+    - DescriptiveName: Move right
       InputName: Horizontal
       Type: 0
-      State: 0
+      State: 1
       Event:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 665825865}
-            m_MethodName: MoveRight
-            m_Mode: 1
+            m_MethodName: SetPawnState
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
+              m_IntArgument: 1
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
         m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-    - DescriptiveName: 
+    - DescriptiveName: Move left
       InputName: Horizontal
       Type: 1
-      State: 0
+      State: 1
       Event:
         m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 665825865}
-            m_MethodName: MoveLeft
-            m_Mode: 1
+            m_MethodName: SetPawnState
+            m_Mode: 3
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 2
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+        m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - DescriptiveName: ToIdle
+      InputName: Horizontal
+      Type: 2
+      State: 2
+      Event:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 665825865}
+            m_MethodName: SetPawnState
+            m_Mode: 3
             m_Arguments:
               m_ObjectArgument: {fileID: 0}
               m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -304,18 +486,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32723d73655c42141b8e13eed0b4da60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizedData:
-    UBState:
-      ParameterName: 
-    LBState:
-      ParameterName: 
-    Velocity:
-      ParameterName: 
-    bInteracting:
-      ParameterName: 
+  Animator: {fileID: 0}
+  PawnState:
+    ParameterName: 
   m_AnimationAttributes:
-    bFacingRight: 0
-  MaxInputFrequency: 1
+    bFacingRight: 1
+  m_MaxInputFrequency: 0
+  m_MoveValue: 1
+--- !u!95 &665825866
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 665825859}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &718896215
 GameObject:
   m_ObjectHideFlags: 0

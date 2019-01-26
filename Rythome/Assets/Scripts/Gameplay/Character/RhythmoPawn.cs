@@ -53,6 +53,8 @@ namespace Rhythome.Gameplay
         private int m_MaxInputFrequency;
         [SerializeField]
         private float m_MoveValue = 1;
+		[SerializeField]
+		private float m_MinWorldBound = -1f, m_MaxWorldBound = 1f;
 
         /** VARIABLES
         */
@@ -182,6 +184,7 @@ namespace Rhythome.Gameplay
             }
 
             Vector3 pos = transform.position + new Vector3(_value, 0,0);
+			pos.x = Mathf.Clamp(pos.x, m_MinWorldBound, m_MaxWorldBound);
             transform.position = pos;
 
             m_AnimatorHelper.Update(_value);

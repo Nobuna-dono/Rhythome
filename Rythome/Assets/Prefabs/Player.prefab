@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146713988346854}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -151,6 +151,8 @@ MonoBehaviour:
     bFacingRight: 1
   m_MaxInputFrequency: 0
   m_MoveValue: 1
+  m_MinWorldBound: -14.873
+  m_MaxWorldBound: 14.875
 --- !u!212 &212476957463643194
 SpriteRenderer:
   m_ObjectHideFlags: 1

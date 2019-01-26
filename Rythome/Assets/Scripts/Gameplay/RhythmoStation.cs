@@ -19,15 +19,14 @@ namespace Rhythome.Gameplay
         }
         #endregion
 
-        #region PROPERTIES
+        #region PROPERTIES7
+        [Space(10)]
+        [Header("- Rhythmo Station Settings:")]
         [SerializeField]
         private RythmData m_Data;
 
         [SerializeField]
         private StateMachineSyncDataOfInt StationState;
-
-        private MeshRenderer m_Mesh;
-        private AudioSource m_Source;
         #endregion
 
 
@@ -41,11 +40,6 @@ namespace Rhythome.Gameplay
             {
                 m_Source = gameObject.AddComponent<AudioSource>();
                 m_Source.spatialize = true;
-            }
-
-            if((m_Mesh = GetComponent<MeshRenderer>()) == null)
-            {
-                Debug.LogError("No mesh renderer on " + this.gameObject);
             }
         }
         #endregion
@@ -100,14 +94,16 @@ namespace Rhythome.Gameplay
             }
         }
 
-        public override void UpdateBPM(float _newTimeScale)
-        {
-            m_Source.pitch = _newTimeScale;
-        }
-
         public override void EnableFeedback(bool _enable)
         {
-            // Do some shader stuff
+            if (_enable)
+            {
+                gameObject.layer = 8;
+            }
+            else
+            {
+                gameObject.layer = 0;
+            }
         }
         #endregion
     }

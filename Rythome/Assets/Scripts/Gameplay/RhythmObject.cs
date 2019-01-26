@@ -9,8 +9,18 @@ namespace Rhythome.Gameplay
     public class RhythmObject : MonoBehaviour
     {
         #region PROPERTIES
+        [Header("- Rhythm Object Basic Sound:")]
         [SerializeField]
-        private Animator Animator;
+        protected AudioClip m_TickSound;
+        [SerializeField]
+        protected AudioClip m_TockSound;
+
+        [Space(10)]
+        [Header("- Rhythm Object Settings (Optional):")]
+        [SerializeField]
+        protected AudioSource m_Source;
+        [SerializeField]
+        protected Animator m_Animator;
 
         private int m_ZOrder = 0;
         public int ZOrder { get { return m_ZOrder; } }
@@ -26,7 +36,19 @@ namespace Rhythome.Gameplay
             SpriteRenderer sprite;
             if(sprite = GetComponent<SpriteRenderer>())
             {
-                m_ZOrder = sprite.sortingOrder;
+                m_ZOrder = sprite.sortingLayerID;
+            }
+
+            if ((m_Source = GetComponent<AudioSource>()) == null)
+            {
+                m_Source = gameObject.AddComponent<AudioSource>();
+                m_Source.spatialize = true;
+            }
+
+            m_Animator = GetComponent<Animator>();
+            if (m_Animator == null)
+            {
+                Debug.LogWarning("Failed to get 'Animator' component.");
             }
         }
         #endregion
@@ -47,8 +69,10 @@ namespace Rhythome.Gameplay
         public virtual void EnableFeedback(bool _enable)
         { }
 
-        public virtual void UpdateBPM(float _newBPM)
-        { }
+        public virtual void UpdateBPM(float _newBPMScale)
+        {
+            m_Animator.speed = _newBPMScale;
+        }
 
         public virtual void RythmoPlay1()
         { }

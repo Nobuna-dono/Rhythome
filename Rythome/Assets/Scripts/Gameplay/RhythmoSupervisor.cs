@@ -8,10 +8,12 @@ namespace Rhythome.Gameplay
     public class RhythmoSupervisor : MonoBehaviour
     {
         #region PROPERTIES
-        [SerializeField]
-        [Range(1f, 240f)]
         private float m_BPM = 60f; // 1 = 60bpm
         public float BPM { get { return m_BPM; } }
+
+        [SerializeField]
+        [Range(1f, 320f)]
+        private float FORCED_BPM = 60f;
 
         //List<RythmObject> m_RythmObjects;
         public delegate void TimeScaleUpdate_Delegate(float _newTimeScale);
@@ -36,9 +38,14 @@ namespace Rhythome.Gameplay
         // Update is called once per frame
         void Update()
         {
+            if(m_BPM != FORCED_BPM)
+            {
+                UpdateBPM(FORCED_BPM);
+            }
+
             CurrentTimeBuffer += Time.deltaTime;
 
-            if (CurrentTimeBuffer >= m_BPM / 60f)
+            if (CurrentTimeBuffer >=   60f / m_BPM)
             {
                 if(OnBeat != null)
                 {
@@ -48,7 +55,7 @@ namespace Rhythome.Gameplay
 
                 CurrentTimeBuffer = 0;
             }
-            else if (!m_IsBeatAtEnd && CurrentTimeBuffer >= (m_BPM / 60f) * 0.5f)
+            else if (!m_IsBeatAtEnd && CurrentTimeBuffer >= (60f / m_BPM) * 0.5f)
             {
                 if (OnHalfBeat != null)
                 {
@@ -61,7 +68,12 @@ namespace Rhythome.Gameplay
         #region CUSTOM METHODS
         public void UpdateBPM(float _newBPM)
         {
-            OnTimeScaleUpdate(m_BPM = _newBPM / 60f);
+            if (_newBPM <= 1)
+            {
+                _newBPM = 1;
+            }
+
+            OnTimeScaleUpdate((m_BPM = _newBPM) / 60f);
         }
         #endregion
     }

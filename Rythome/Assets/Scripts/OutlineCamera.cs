@@ -11,9 +11,7 @@ public class OutlineCamera : MonoBehaviour
 
 	[SerializeField]
 	private LayerMask m_outlinedLayers = new LayerMask();
-
-	[SerializeField]
-	private Shader m_outlineShader = null;
+	
 	[SerializeField]
 	private Shader m_postOutlineShader = null;
 	private Material m_postOutlineMaterial = null;
@@ -51,13 +49,13 @@ public class OutlineCamera : MonoBehaviour
 	{
 		if (!m_renderTexture)
 		{
-			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.R8);
+			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.ARGBHalf);
 			m_renderTexture.Create();
 		}
 		else if (m_renderTexture.width != source.width || m_renderTexture.height != source.height)
 		{
 			m_renderTexture.Release();
-			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.R8);
+			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.ARGBHalf);
 			m_renderTexture.Create();
 		}
 
@@ -69,7 +67,7 @@ public class OutlineCamera : MonoBehaviour
 		m_outlineCamera.depth = -100;
 		m_outlineCamera.depthTextureMode = DepthTextureMode.None;
 
-		m_outlineCamera.RenderWithShader(m_outlineShader, string.Empty);
+		m_outlineCamera.Render();
 
 		Graphics.Blit(m_renderTexture, source, m_postOutlineMaterial);
 		Graphics.Blit(source, destination);

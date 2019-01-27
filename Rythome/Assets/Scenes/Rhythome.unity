@@ -370,6 +370,10 @@ Prefab:
       propertyPath: InputBuilder.inputList.Array.data[3].Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1146713988346854, guid: 332254e88f1db7347a100ced3f215b25, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 332254e88f1db7347a100ced3f215b25, type: 2}
   m_IsPrefabParent: 0
@@ -464,11 +468,6 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1081520058}
-    - target: {fileID: 114534719292474332, guid: c37bbb03699713244b862e0e49fbc6e5,
-        type: 2}
-      propertyPath: Speed
-      value: 0.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37bbb03699713244b862e0e49fbc6e5, type: 2}
   m_IsPrefabParent: 0
@@ -585,6 +584,10 @@ Prefab:
     - target: {fileID: 4387324764749512, guid: 9a3073b78ff94084db6254bbe84de403, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1406571149900152, guid: 9a3073b78ff94084db6254bbe84de403, type: 2}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a3073b78ff94084db6254bbe84de403, type: 2}

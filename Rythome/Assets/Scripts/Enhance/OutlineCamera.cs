@@ -7,14 +7,24 @@ public class OutlineCamera : MonoBehaviour
 
 	[SerializeField]
 	private Camera m_outlineCamera = null;
-	private RenderTexture m_renderTexture = null;
+	[SerializeField]
+	private Camera m_subtractCamera = null;
+	private RenderTexture m_outlineRenderTexture = null;
+	private RenderTexture m_subtractRenderTexture = null;
 
 	[SerializeField]
 	private LayerMask m_outlinedLayers = new LayerMask();
-	
+	[SerializeField]
+	private LayerMask m_subtractedLayers = new LayerMask();
+
+	[SerializeField]
+	private Shader m_preOutlineShader = null;
 	[SerializeField]
 	private Shader m_postOutlineShader = null;
+	[SerializeField]
+	private Shader m_subtractOutlineShader = null;
 	private Material m_postOutlineMaterial = null;
+	private Material m_subtractOutlineMaterial = null;
 
 	[SerializeField]
 	private float m_outlineCutoff = 0.5f;
@@ -25,52 +35,81 @@ public class OutlineCamera : MonoBehaviour
 	[SerializeField]
 	private Color m_outlineColor = Color.black;
 
+	[SerializeField]
+	private bool m_showSubtract = false, m_showOutline = false;
+
 	private void OnEnable()
 	{
-		if (!m_outlineCamera)
-			m_outlineCamera = GetComponent<Camera>();
-
 		m_outlineCamera.enabled = false;
+		m_subtractCamera.enabled = false;
 
 		m_postOutlineMaterial = new Material(m_postOutlineShader);
+		m_subtractOutlineMaterial = new Material(m_subtractOutlineShader);
 		UpdateMaterial();
 	}
 
 	private void OnDisable()
 	{
-		if (m_renderTexture)
-		{
-			m_renderTexture.Release();
-			m_renderTexture = null;
-		}
+		DestroyRenderTexture(ref m_outlineRenderTexture);
+		DestroyRenderTexture(ref m_subtractRenderTexture);
 	}
 
 	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
-		if (!m_renderTexture)
+		CreateRenderTexture(ref m_outlineRenderTexture, source);
+		CreateRenderTexture(ref m_subtractRenderTexture, source);
+
+		CopyCamera(m_outlineCamera, m_outlineRenderTexture, m_outlinedLayers);
+		CopyCamera(m_subtractCamera, m_subtractRenderTexture, m_subtractedLayers);
+		
+		m_subtractCamera.RenderWithShader(m_preOutlineShader, "RenderType");
+		m_outlineCamera.RenderWithShader(m_preOutlineShader, "RenderType");
+
+		Graphics.Blit(m_subtractRenderTexture, m_outlineRenderTexture, m_subtractOutlineMaterial);
+		if (m_showSubtract)
+			Graphics.Blit(m_subtractRenderTexture, destination);
+		else if (m_showOutline)
+			Graphics.Blit(m_outlineRenderTexture, destination);
+		else
 		{
-			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.ARGBHalf);
-			m_renderTexture.Create();
+			Graphics.Blit(m_outlineRenderTexture, source, m_postOutlineMaterial);
+			Graphics.Blit(source, destination);
 		}
-		else if (m_renderTexture.width != source.width || m_renderTexture.height != source.height)
+	}
+
+	private void DestroyRenderTexture(ref RenderTexture texture)
+	{
+		if (texture)
 		{
-			m_renderTexture.Release();
-			m_renderTexture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.ARGBHalf);
-			m_renderTexture.Create();
+			texture.Release();
+			texture = null;
 		}
+	}
 
-		m_outlineCamera.CopyFrom(m_originalCamera);
-		m_outlineCamera.cullingMask = m_outlinedLayers;
-		m_outlineCamera.clearFlags = CameraClearFlags.SolidColor;
-		m_outlineCamera.backgroundColor = new Color(0, 0, 0, 0);
-		m_outlineCamera.targetTexture = m_renderTexture;
-		m_outlineCamera.depth = -100;
-		m_outlineCamera.depthTextureMode = DepthTextureMode.None;
+	private void CreateRenderTexture(ref RenderTexture texture, RenderTexture source)
+	{
+		if (!texture)
+		{
+			texture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.R8);
+			texture.Create();
+		}
+		else if (texture.width != source.width || m_outlineRenderTexture.height != source.height)
+		{
+			texture.Release();
+			texture = new RenderTexture(source.width, source.height, 0, RenderTextureFormat.R8);
+			texture.Create();
+		}
+	}
 
-		m_outlineCamera.Render();
-
-		Graphics.Blit(m_renderTexture, source, m_postOutlineMaterial);
-		Graphics.Blit(source, destination);
+	private void CopyCamera(Camera cam, RenderTexture texture, LayerMask layerMask)
+	{
+		cam.CopyFrom(m_originalCamera);
+		cam.cullingMask = layerMask;
+		cam.clearFlags = CameraClearFlags.SolidColor;
+		cam.backgroundColor = new Color(0, 0, 0, 0);
+		cam.targetTexture = texture;
+		cam.depth = -100;
+		cam.depthTextureMode = DepthTextureMode.None;
 	}
 
 	private void OnValidate()
@@ -80,11 +119,11 @@ public class OutlineCamera : MonoBehaviour
 
 	private void UpdateMaterial()
 	{
-		if (!m_postOutlineMaterial)
-			return;
-
-		m_postOutlineMaterial.SetFloat("_OutlineCutoff", m_outlineCutoff);
-		m_postOutlineMaterial.SetFloat("_OutlineWidth", m_outlineWidth);
-		m_postOutlineMaterial.SetColor("_OutlineColor", m_outlineColor);
+		if (m_postOutlineMaterial)
+		{
+			m_postOutlineMaterial.SetFloat("_OutlineCutoff", m_outlineCutoff);
+			m_postOutlineMaterial.SetFloat("_OutlineWidth", m_outlineWidth);
+			m_postOutlineMaterial.SetColor("_OutlineColor", m_outlineColor);
+		}
 	}
 }

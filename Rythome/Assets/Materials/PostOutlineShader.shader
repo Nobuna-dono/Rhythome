@@ -9,18 +9,18 @@
 	}
 	SubShader
 	{
-		Cull Off
-		ZWrite Off
-		ZTest Always
-		Blend SrcAlpha OneMinusSrcAlpha
-		BlendOp Add
-
 		Pass
 		{
+			Cull Off
+			ZWrite Off
+			ZTest Always
+			Blend SrcAlpha OneMinusSrcAlpha
+			BlendOp Add
+
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			
+
 			#include "UnityCG.cginc"
 
 			sampler2D _MainTex;
@@ -50,9 +50,9 @@
 				return OUT;
 			}
 
-			fixed4 frag(v2f i) : SV_Target
+			fixed4 frag(v2f IN) : SV_Target
 			{
-				if (tex2D(_MainTex, i.uv.xy).a > _OutlineCutoff)
+				if (tex2D(_MainTex, IN.uv.xy).r > _OutlineCutoff)
 					discard;
 
 				fixed intensity = 0.0;
@@ -63,7 +63,7 @@
 					for (fixed j = -_OutlineWidth ; j < _OutlineWidth; ++j)
 					{
 						fixed2 offset = fixed2(k, j);
-						intensity += tex2D(_MainTex, i.uv.xy + offset * _MainTex_TexelSize).a;
+						intensity += tex2D(_MainTex, IN.uv.xy + offset * _MainTex_TexelSize).r;
 					}
 				}
 

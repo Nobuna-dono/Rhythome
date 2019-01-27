@@ -57,6 +57,7 @@ namespace Rhythome.Core
 
         void Start()
         {
+            Cursor.visible = false;
             m_Instance = FindObjectOfType<ServiceSupervisor>();
             m_Event = gameObject.AddComponent<EventSupervisor>();
 

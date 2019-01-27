@@ -88,8 +88,16 @@ namespace Rhythome.Gameplay
             }
         }
 
+        public void ResetIdlePlay()
+        {
+            StationState.SetData((int)ERhythmoStationState.Idle_RhythmPlay, m_Animator);
+        }
+
+
         protected override void Beat()
         {
+            //StationState.SetData((int)ERhythmoStationState.Idle_RhythmPlay, m_Animator);
+
             if (m_ForceTickTock && m_TickSound)
             {
                 if (m_Source.isPlaying)
@@ -103,9 +111,9 @@ namespace Rhythome.Gameplay
 
         protected override void HalfBeat()
         {
-            StationState.SetData((int)ERhythmoStationState.Idle_BeatOn, m_Animator);
+            //StationState.SetData((int)ERhythmoStationState.Idle_RhythmPlay, m_Animator);
 
-            if(m_ForceTickTock && m_TockSound)
+            if (m_ForceTickTock && m_TockSound)
             {
                 if (m_Source.isPlaying)
                 {

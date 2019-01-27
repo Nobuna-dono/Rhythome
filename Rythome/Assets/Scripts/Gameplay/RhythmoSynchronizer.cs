@@ -106,11 +106,13 @@ namespace Rhythome.Gameplay
                 {
                     if (m_PlayNoteCount >= 1f)
                     {
-                        --m_PlayNoteCount;
-                        PlayNote();
+                        if (--m_PlayNoteCount == 0)
+                        {
+                            PlayNote();
+                        }
                     }
                 }
-                //else
+                else
                 {
                     m_BeatCountBuffer++;
                     m_IsHalfBeat = false;
@@ -127,7 +129,7 @@ namespace Rhythome.Gameplay
                     m_PlayNoteCount = 0f;
                     PlayNote();
                 }
-                //else
+                else
                 {
                     m_IsHalfBeat = true;
                 }

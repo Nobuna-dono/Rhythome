@@ -49,8 +49,10 @@ namespace Rhythome.Gameplay
             m_Animator = GetComponent<Animator>();
             if (m_Animator == null)
             {
-                Debug.LogWarning("Failed to get 'Animator' component.");
+                Debug.LogWarning("Failed to get 'Animator' component. " + gameObject);
             }
+
+            UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM / 60f);
         }
         #endregion
 

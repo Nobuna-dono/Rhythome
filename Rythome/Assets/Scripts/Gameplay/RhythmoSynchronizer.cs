@@ -114,7 +114,6 @@ namespace Rhythome.Gameplay
                 }
                 else
                 {
-                    RStation.ResetIdlePlay();
                     m_BeatCountBuffer++;
                     m_IsHalfBeat = false;
                 }
@@ -132,7 +131,6 @@ namespace Rhythome.Gameplay
                 }
                 else
                 {
-                    RStation.ResetIdlePlay();
                     m_IsHalfBeat = true;
                 }
             }

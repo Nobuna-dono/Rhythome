@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Rhythome.Core;
+
 namespace Rhythome.Gameplay
 {
     public class RhythmoSynchronizer : RhythmObject
@@ -37,6 +39,10 @@ namespace Rhythome.Gameplay
         #region PROPERTIES
         RhythmoStation RStation;
 
+
+        private Material m_ClassicMat;
+        private SpriteRenderer m_SpriteRenderer;
+
         [SerializeField]
         private List<RhythmMark> RhythmPattern = new List<RhythmMark>(10);
 
@@ -46,6 +52,7 @@ namespace Rhythome.Gameplay
         private float m_BeatCountBuffer = 0;
         private bool m_CanBeat = false;
         private bool m_AutoPlay = false;
+        private bool m_FirstAutoPlay = false;
 
         private bool m_IsHalfBeat = false;
         #endregion
@@ -59,21 +66,38 @@ namespace Rhythome.Gameplay
             {
                 Debug.LogError("No Station bind to the syncrhonizer...");
             }
+
+            if (!(m_SpriteRenderer = GetComponent<SpriteRenderer>()))
+            {
+                Debug.LogError("No m_SpriteRenderer bind to the syncrhonizer...");
+            }
+            else
+            {
+                m_ClassicMat = m_SpriteRenderer.material;
+            }
         }
         #endregion
 
         #region RHYTHOME METHODS
         public override void StartBeat()
         {
-            RhythmPattern.Clear();
             if (RhythmPattern.Count > 0)
             {
                 m_CanBeat = m_AutoPlay = false;
             }
+            RhythmPattern.Clear();
+
+            m_SpriteRenderer.material = m_ClassicMat;
         }
 
         protected override void Beat()
         {
+            if (m_FirstAutoPlay)
+            {
+                GetComponent<RhythmoStation>().StartBeat();
+                m_FirstAutoPlay = false;
+            }
+
             if (m_CanBeat)
             {
                 if(m_AutoPlay)
@@ -201,10 +225,14 @@ namespace Rhythome.Gameplay
         {
             m_CanBeat = true;
             m_AutoPlay = true;
-            GetComponent<RhythmoStation>().StartBeat();
+            m_FirstAutoPlay = true;
             m_CurrentMark = 0;
-            NextMark();
+            m_PlayNoteCount = RhythmPattern[m_CurrentMark].BeatBeforeNextNote;
+
+            m_SpriteRenderer.material = ServiceSupervisor.Instance.Rythm.m_GhostMaterial;
         }
+
+       
 
         void UndoRhythmAndExit()
         {

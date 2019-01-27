@@ -15,6 +15,9 @@ namespace Rhythome.Gameplay
         [Range(1f, 320f)]
         private float FORCED_BPM = 60f;
 
+        public Material m_GhostMaterial;
+
+
         //List<RythmObject> m_RythmObjects;
         public delegate void TimeScaleUpdate_Delegate(float _newTimeScale);
         public TimeScaleUpdate_Delegate OnTimeScaleUpdate;

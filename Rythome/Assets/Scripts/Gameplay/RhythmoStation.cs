@@ -9,13 +9,13 @@ namespace Rhythome.Gameplay
         #region ENUMS
         public enum ERhythmoStationState
         {
-            Idle_BeatOff,
-            Idle_BeatOn,
+            Idle_BeatOff = 0,
+            Idle_BeatOn = 1,
 
-            Idle_RhythmPlay,
-            RhythmPlay1,
-            RhythmPlay2,
-            RhythmPlay3,
+            Idle_RhythmPlay = 2,
+            RhythmPlay1 = 3,
+            RhythmPlay2 = 4,
+            RhythmPlay3 = 5,
         }
         #endregion
 

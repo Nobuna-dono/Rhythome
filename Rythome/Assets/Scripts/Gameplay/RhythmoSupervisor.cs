@@ -69,7 +69,8 @@ namespace Rhythome.Gameplay
                 _newBPM = 1;
             }
 
-            OnTimeScaleUpdate((m_BPM = _newBPM) / 60f);
+            if(OnTimeScaleUpdate != null)
+                OnTimeScaleUpdate((m_BPM = _newBPM) / 60f);
         }
         #endregion
     }

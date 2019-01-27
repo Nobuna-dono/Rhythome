@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4230835506162842}
   - component: {fileID: 114018749503564250}
+  - component: {fileID: 114273689198432540}
   m_Layer: 0
   m_Name: ServiceSupervisor
   m_TagString: Untagged
@@ -53,3 +54,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rythm: {fileID: 0}
   GameMode: 0
+--- !u!114 &114273689198432540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043343347782644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1689b88373b72648b85aa99c812cd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FORCED_BPM: 180
+  m_GhostMaterial: {fileID: 2100000, guid: d271d68c3badf8b4590c25fe2f2c7f1b, type: 2}

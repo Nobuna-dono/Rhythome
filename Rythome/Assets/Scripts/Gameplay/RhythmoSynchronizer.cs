@@ -87,6 +87,8 @@ namespace Rhythome.Gameplay
             }
             RhythmPattern.Clear();
 
+            GetComponent<RhythmoStation>().StartBeat();
+
             m_SpriteRenderer.material = m_ClassicMat;
         }
 

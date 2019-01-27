@@ -152,9 +152,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1146713988346854, guid: 332254e88f1db7347a100ced3f215b25, type: 2}
-      propertyPath: m_Layer
-      value: 2
+    - target: {fileID: 114951185577221498, guid: 332254e88f1db7347a100ced3f215b25,
+        type: 2}
+      propertyPath: m_MoveValue
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212476957463643194, guid: 332254e88f1db7347a100ced3f215b25,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 332254e88f1db7347a100ced3f215b25, type: 2}
@@ -222,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1689b88373b72648b85aa99c812cd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FORCED_BPM: 60
+  FORCED_BPM: 120
   m_GhostMaterial: {fileID: 2100000, guid: d271d68c3badf8b4590c25fe2f2c7f1b, type: 2}
 --- !u!1 &773689873
 GameObject:
@@ -566,6 +572,36 @@ Prefab:
         type: 2}
       propertyPath: StationState.ParameterName
       value: State
+      objectReference: {fileID: 0}
+    - target: {fileID: 212995209151348406, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114300174069030890, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: Rythm1
+      value: 
+      objectReference: {fileID: 8300000, guid: cd73a741f0e55a54c9f1319297675ada, type: 3}
+    - target: {fileID: 114300174069030890, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: Rythm2
+      value: 
+      objectReference: {fileID: 8300000, guid: 6533de4d6a67e2a489b114e4c4f2d4a9, type: 3}
+    - target: {fileID: 114300174069030890, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: m_TockSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114300174069030890, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: m_TickSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6c5e9a92ec5ce6b4f9b6df2bd155e146, type: 3}
+    - target: {fileID: 114300174069030890, guid: c387420f94d803a479f2a7d1cc0fdbe6,
+        type: 2}
+      propertyPath: m_ForceTickTock
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c387420f94d803a479f2a7d1cc0fdbe6, type: 2}

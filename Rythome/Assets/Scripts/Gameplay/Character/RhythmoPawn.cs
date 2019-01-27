@@ -244,12 +244,14 @@ namespace Rhythome.Gameplay
             {
                 Synchronizer = LinkSRStation.GetComponent<RhythmoSynchronizer>();
                 Synchronizer.StartBeat();
+                GetComponent<SpriteRenderer>().enabled = false;
             }
             else
             {
                 if(Synchronizer)
                     Synchronizer.AddNote(RhythmoSynchronizer.EMarkType.Back);
                 Synchronizer = null;
+                GetComponent<SpriteRenderer>().enabled = true;
             }
         }
 
@@ -266,6 +268,7 @@ namespace Rhythome.Gameplay
                 LockBeat = false;
                 CanSyncBeat = false;
                 Synchronizer = null;
+                GetComponent<SpriteRenderer>().enabled = true;
             }
         }
 

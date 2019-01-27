@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1689b88373b72648b85aa99c812cd15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FORCED_BPM: 60
+  FORCED_BPM: 180
   m_GhostMaterial: {fileID: 2100000, guid: d271d68c3badf8b4590c25fe2f2c7f1b, type: 2}
 --- !u!1 &773689873
 GameObject:
@@ -471,6 +471,89 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &841801579 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1740398747323036, guid: 9a3073b78ff94084db6254bbe84de403,
+    type: 2}
+  m_PrefabInternal: {fileID: 881880720}
+--- !u!61 &841801582
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841801579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.078125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.203125, y: 0.15625}
+    newSize: {x: 0.203125, y: 0.15625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.203125, y: 0.15625}
+  m_EdgeRadius: 0
+--- !u!95 &841801583
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841801579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &841801584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841801579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &841801585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841801579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: 924353b98f87794449739e06e9799d23, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
 --- !u!1001 &846391357
 Prefab:
   m_ObjectHideFlags: 0
@@ -513,6 +596,28 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f920fd0300f9c184ebb7963f50b0c463, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &865294672 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1041957987142460, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1334220614}
+--- !u!95 &865294678
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 865294672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &881880720
 Prefab:
   m_ObjectHideFlags: 0
@@ -643,6 +748,169 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &892716421 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1585091497755016, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1334220614}
+--- !u!114 &892716423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892716421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1689b88373b72648b85aa99c812cd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FORCED_BPM: 60
+  m_GhostMaterial: {fileID: 0}
+--- !u!114 &892716424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892716421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 8300000, guid: c159bb576b94f7043a029927dd0bd051, type: 3}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: 6c5e9a92ec5ce6b4f9b6df2bd155e146, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &892716425
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892716421}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.15625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.28125, y: 0.3125}
+    newSize: {x: 0.28125, y: 0.3125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.14, y: 0.14}
+  m_EdgeRadius: 0
+--- !u!95 &892716426
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 892716421}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1021249633 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1549282183646718, guid: 9a3073b78ff94084db6254bbe84de403,
+    type: 2}
+  m_PrefabInternal: {fileID: 881880720}
+--- !u!114 &1021249635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021249633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &1021249636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021249633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 8300000, guid: c159bb576b94f7043a029927dd0bd051, type: 3}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: 35d413dc597678345afa0784ddf1a8dd, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &1021249637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021249633}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.171875}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.21875, y: 0.34375}
+    newSize: {x: 0.21875, y: 0.34375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21875, y: 0.34375}
+  m_EdgeRadius: 0
+--- !u!95 &1021249638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1021249633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1038340593 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4218656877483124, guid: a7cf4de4278eba64f89c241b3e767ca5,
@@ -695,6 +963,89 @@ Transform:
   m_PrefabParentObject: {fileID: 4792799020029862, guid: 332254e88f1db7347a100ced3f215b25,
     type: 2}
   m_PrefabInternal: {fileID: 143354338}
+--- !u!1 &1218204068 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1652303484690768, guid: d92f959613f516a4980436958c59d59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 403186844}
+--- !u!95 &1218204071
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218204068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1218204072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218204068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &1218204073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218204068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: 7865a6f91707aed45a4b2274e07f86d4, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &1218204074
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218204068}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.49, y: 0.09375}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.09375, y: 0.1875}
+    newSize: {x: 0.09375, y: 0.1875}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.09375, y: 0.1875}
+  m_EdgeRadius: 0
 --- !u!1001 &1325055277
 Prefab:
   m_ObjectHideFlags: 0
@@ -777,6 +1128,89 @@ Transform:
   m_PrefabParentObject: {fileID: 4000656656128284, guid: c387420f94d803a479f2a7d1cc0fdbe6,
     type: 2}
   m_PrefabInternal: {fileID: 1325055277}
+--- !u!1 &1333792397 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1223184344852576, guid: d92f959613f516a4980436958c59d59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 403186844}
+--- !u!114 &1333792399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1333792397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &1333792400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1333792397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: e1717b19ded4403478e5cf465a6d9f9e, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &1333792401
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1333792397}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.36, y: 0.14}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 1.484375, y: 2}
+    newSize: {x: 1.484375, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.26, y: 0.26}
+  m_EdgeRadius: 0
+--- !u!95 &1333792402
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1333792397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1334220614
 Prefab:
   m_ObjectHideFlags: 0
@@ -815,6 +1249,29 @@ Prefab:
     - target: {fileID: 4692248943391838, guid: 1aeba0a66de789f4b9e73ce3b2498ab2, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114278727189768396, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: Rythm1
+      value: 
+      objectReference: {fileID: 8300000, guid: 2db32abefe04b324c96ea20def86f7dc, type: 3}
+    - target: {fileID: 114278727189768396, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_TickSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 61430881396714790, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201955492668296, guid: 1aeba0a66de789f4b9e73ce3b2498ab2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.178
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201955492668296, guid: 1aeba0a66de789f4b9e73ce3b2498ab2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.021
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1aeba0a66de789f4b9e73ce3b2498ab2, type: 2}
@@ -897,6 +1354,89 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1563910518 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1462023801201958, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1334220614}
+--- !u!114 &1563910520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563910518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &1563910521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563910518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: a214ab31843a3a14ba3d41bb0f64197c, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &1563910522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563910518}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.13, y: 0.0390625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.4375, y: 0.078125}
+    newSize: {x: 0.4375, y: 0.078125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.07, y: 0.078125}
+  m_EdgeRadius: 0
+--- !u!95 &1563910523
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563910518}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1678310520
 Prefab:
   m_ObjectHideFlags: 0
@@ -939,6 +1479,89 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a7cf4de4278eba64f89c241b3e767ca5, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1782479436 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1257081832323360, guid: 9a3073b78ff94084db6254bbe84de403,
+    type: 2}
+  m_PrefabInternal: {fileID: 881880720}
+--- !u!114 &1782479438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782479436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &1782479439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782479436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 8300000, guid: c159bb576b94f7043a029927dd0bd051, type: 3}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: f032368b948f9354cbd60f9cee9ecc11, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &1782479440
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782479436}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.21, y: 0.203125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.640625, y: 0.40625}
+    newSize: {x: 0.640625, y: 0.40625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.19, y: 0.25}
+  m_EdgeRadius: 0
+--- !u!95 &1782479441
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782479436}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1894336110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,3 +1640,86 @@ Transform:
   m_PrefabParentObject: {fileID: 4707968936717948, guid: d92f959613f516a4980436958c59d59e,
     type: 2}
   m_PrefabInternal: {fileID: 403186844}
+--- !u!1 &2002845483 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1074613857194916, guid: d92f959613f516a4980436958c59d59e,
+    type: 2}
+  m_PrefabInternal: {fileID: 403186844}
+--- !u!95 &2002845486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002845483}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &2002845487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002845483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b18a0df80d2225a4a94380c5b7d1738d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  RhythmPattern: []
+--- !u!114 &2002845488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002845483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20753ba0569b64e46834ba073c6de72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TickSound: {fileID: 0}
+  m_TockSound: {fileID: 0}
+  m_Source: {fileID: 0}
+  m_Animator: {fileID: 0}
+  Rythm1: {fileID: 8300000, guid: bc3786e04acb0124c9cda1e19a45dd61, type: 3}
+  Rythm2: {fileID: 0}
+  m_ForceTickTock: 0
+  StationState:
+    ParameterName: 
+--- !u!61 &2002845489
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002845483}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.58, y: 0.1171875}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 0.046875, y: 0.234375}
+    newSize: {x: 0.046875, y: 0.234375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.046875, y: 0.234375}
+  m_EdgeRadius: 0

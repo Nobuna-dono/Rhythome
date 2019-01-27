@@ -215,18 +215,18 @@ namespace Rhythome.Gameplay
                 case EMarkType.Rythm3:
                     RythmoPlay3();
                     break;
-                case EMarkType.Save:
-                    SaveRhythmAndExit();
-                    break;
-                default: // CANCEL
-                    UndoRhythmAndExit();
-                    break;
             }
             NextMark();
         }
 
         void SaveRhythmAndExit()
         {
+            if(RhythmPattern.Count == 0)
+            {
+                UndoRhythmAndExit();
+                return;
+            }
+
             m_CanBeat = true;
             m_AutoPlay = true;
             m_FirstAutoPlay = true;

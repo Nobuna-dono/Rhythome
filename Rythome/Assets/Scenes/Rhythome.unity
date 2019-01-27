@@ -1553,6 +1553,26 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 1.021
       objectReference: {fileID: 0}
+    - target: {fileID: 212407992994111086, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212407992994111086, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212251320081065672, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1404550579
+      objectReference: {fileID: 0}
+    - target: {fileID: 212251320081065672, guid: 1aeba0a66de789f4b9e73ce3b2498ab2,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1aeba0a66de789f4b9e73ce3b2498ab2, type: 2}
   m_IsPrefabParent: 0
@@ -1954,10 +1974,10 @@ MonoBehaviour:
   m_Source: {fileID: 0}
   m_Animator: {fileID: 0}
   Rythm1: {fileID: 8300000, guid: a214ab31843a3a14ba3d41bb0f64197c, type: 3}
-  Rythm2: {fileID: 0}
+  Rythm2: {fileID: 8300000, guid: a214ab31843a3a14ba3d41bb0f64197c, type: 3}
   m_ForceTickTock: 0
   StationState:
-    ParameterName: 
+    ParameterName: State
 --- !u!61 &1563910522
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1992,7 +2012,7 @@ Animator:
   m_GameObject: {fileID: 1563910518}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3af49d00ebd9fb44d82dd28b3ea89bdd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

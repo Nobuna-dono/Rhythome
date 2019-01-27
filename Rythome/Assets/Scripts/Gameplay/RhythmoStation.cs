@@ -47,50 +47,60 @@ namespace Rhythome.Gameplay
         #region RHYTHOME METHODS
         public override void StartBeat()
         {
-            // Add transition
-            // bIsAllowedToBeat = true;
-            // Animation Idle to
+           StationState.SetData((int)ERhythmoStationState.Idle_BeatOn, m_Animator);
         }
 
         public override void StopBeat()
         {
-            // Add transition
-            //m_Mesh.enabled = true;
+            StationState.SetData((int)ERhythmoStationState.Idle_BeatOff, m_Animator);
         }
 
         public override void RythmoPlay1()
         {
-            // Animation
-            if (m_Source.isPlaying)
+            if(m_Data.Rythm1)
             {
-                m_Source.Stop();
-            }
-            m_Source.clip = m_Data.Rythm1;
-        }
+                StationState.SetData((int)ERhythmoStationState.RhythmPlay1, m_Animator);
 
-        public override void RythmoPlay2()
-        {
-            // Animation
-            if (m_Data.Rythm2)
-            {
                 if (m_Source.isPlaying)
                 {
                     m_Source.Stop();
                 }
-                m_Source.clip = m_Data.Rythm2;
+                m_Source.clip = m_Data.Rythm1;
+                m_Source.Play();
+            }
+        }
+
+        public override void RythmoPlay2()
+        {
+            if(m_Data.Rythm2)
+            {
+                StationState.SetData((int)ERhythmoStationState.RhythmPlay2, m_Animator);
+                if (m_Data.Rythm2)
+                {
+                    if (m_Source.isPlaying)
+                    {
+                        m_Source.Stop();
+                    }
+                    m_Source.clip = m_Data.Rythm2;
+                    m_Source.Play();
+                }
             }
         }
 
         public override void RythmoPlay3()
         {
-            // Animation
             if (m_Data.Rythm3)
             {
-                if (m_Source.isPlaying)
+                StationState.SetData((int)ERhythmoStationState.RhythmPlay3, m_Animator);
+                if (m_Data.Rythm3)
                 {
-                    m_Source.Stop();
+                    if (m_Source.isPlaying)
+                    {
+                        m_Source.Stop();
+                    }
+                    m_Source.clip = m_Data.Rythm3;
+                    m_Source.Play();
                 }
-                m_Source.clip = m_Data.Rythm3;
             }
         }
 

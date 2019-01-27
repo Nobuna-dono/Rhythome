@@ -57,6 +57,8 @@ namespace Rhythome.Gameplay
         [SerializeField]
         private float m_MinWorldBound = -1f, m_MaxWorldBound = 1f;
 
+        public bool LockBeat = false;
+        public bool CanSyncBeat = false;
 
         /** VARIABLES
         */
@@ -82,41 +84,57 @@ namespace Rhythome.Gameplay
             m_AnimatorHelper = new AnimatorHelper(transform, m_AnimationAttributes.bFacingRight);
         }
 
+        private RhythmoSynchronizer Synchronizer;
+        private RhythmoStation LinkSRStation;
+
         private void OnTriggerStay2D(Collider2D collision)
         {
-            RhythmoStation SRStation = collision.gameObject.GetComponent<RhythmoStation>();
-            if (!SRStation)
+            LinkSRStation = collision.gameObject.GetComponent<RhythmoStation>();
+            if (!LinkSRStation)
+            {
+                CanSyncBeat = false;
                 return;
+            }
+
+            if(LockBeat)
+            {
+                return;
+            }
 
             if (m_CurrentState == ERhythmoPawnState.FaceDown)
             {
-                if (SRStation.ZOrder < ZOrder)
+                if (LinkSRStation.ZOrder > ZOrder)
                 {
-                    SRStation.EnableFeedback(true);
+                    LinkSRStation.EnableFeedback(true);
                     EnableFeedback(true);
+                    CanSyncBeat = true;
                 }
             }
             else if (m_CurrentState == ERhythmoPawnState.FaceUp)
             {
-                if (SRStation.ZOrder > ZOrder)
+                if (LinkSRStation.ZOrder < ZOrder)
                 {
-                    SRStation.EnableFeedback(true);
+                    LinkSRStation.EnableFeedback(true);
                     EnableFeedback(true);
+                    CanSyncBeat = true;
                 }
             }
             else
             {
-                SRStation.EnableFeedback(false);
+                CanSyncBeat = false;
+                LinkSRStation.EnableFeedback(false);
                 EnableFeedback(false);
             }
         }
 
+
         private void OnTriggerExit2D(Collider2D collision)
         {
-            RhythmoStation SRStation = collision.gameObject.GetComponent<RhythmoStation>();
-            if (SRStation)
+            RhythmoStation LinkSRStation = collision.gameObject.GetComponent<RhythmoStation>();
+            if (LinkSRStation)
             {
-                SRStation.EnableFeedback(false);
+                CanSyncBeat = false;
+                LinkSRStation.EnableFeedback(false);
                 EnableFeedback(false);
             }
         }
@@ -126,6 +144,11 @@ namespace Rhythome.Gameplay
         #region RHYTHOME METHODS
         protected override void Beat()
         {
+            if(LockBeat)
+            {
+                return;
+            }
+
             if (m_CurrentStateBuffer != m_CurrentState)
             {
                 PawnState.SetData((int)m_CurrentState, m_Animator);
@@ -157,6 +180,11 @@ namespace Rhythome.Gameplay
 
         protected override void HalfBeat()
         {
+            if (LockBeat)
+            {
+                return;
+            }
+
             if (m_CurrentState >= ERhythmoPawnState.FaceDown)
             {
                 RythmoPlay2();
@@ -191,16 +219,54 @@ namespace Rhythome.Gameplay
 
         public override void EnableFeedback(bool _enable)
         {
-            ResponsiveRhythmUI.SetActive(_enable);
-            if (_enable)
+            if (ResponsiveRhythmUI)
             {
-                ResponsiveUIAnimator.speed = m_Animator.speed;
+                ResponsiveRhythmUI.SetActive(_enable);
+                if (_enable)
+                {
+                    ResponsiveUIAnimator.speed = m_Animator.speed;
+                }
             }
         }
         #endregion
 
 
         #region CUSTOM METHODS
+        public void SynchronizeBeat()
+        {
+            if (!CanSyncBeat)
+                return;
+            LockBeat = !LockBeat;
+
+            if (LockBeat)
+            {
+                Synchronizer = LinkSRStation.GetComponent<RhythmoSynchronizer>();
+                Synchronizer.StartBeat();
+            }
+            else
+            {
+                if(Synchronizer)
+                    Synchronizer.AddNote(RhythmoSynchronizer.EMarkType.Back);
+                Synchronizer = null;
+            }
+        }
+
+        public void PlayNote(int _note)
+        {
+            if (!LockBeat || !Synchronizer)
+                return;
+
+            Synchronizer.AddNote((RhythmoSynchronizer.EMarkType)_note);
+
+            // Desync
+            if (_note == (int)(RhythmoSynchronizer.EMarkType.Save))
+            {
+                LockBeat = false;
+                CanSyncBeat = false;
+                Synchronizer = null;
+            }
+        }
+
         // Call this with Input builder to define direction.
         public void SetPawnState(int _state)
         {
@@ -210,12 +276,13 @@ namespace Rhythome.Gameplay
         public void MoveRight(float _value)
         {
             // Step 1: Check if able to move.
-            if (!CanMoveForward(_value))
+            /*if (!CanMoveForward(_value))
             {
                 m_AnimatorHelper.Update(0f);
                 PawnState.SetData((int)(m_CurrentState = ERhythmoPawnState.Idle), m_Animator);
                 return;
-            }
+            }*/
+
             Vector3 pos = transform.position + new Vector3(_value, 0, 0);
             pos.x = Mathf.Clamp(pos.x, m_MinWorldBound, m_MaxWorldBound);
             transform.position = pos;
@@ -227,46 +294,6 @@ namespace Rhythome.Gameplay
                 RythmoPlay1();
             }
         }
-
-        //public void FaceUp(float _value)
-        //{
-
-        //}
-
-        private bool CanMoveForward(float _direction)
-        {
-            return true;// !ComputeVerticalRay(_direction);
-        }
-
-        /** HELPERS METHODS
-         */
-        private Collider2D ComputeVerticalRay(float _sign)
-        {
-            Vector2 origin = transform.position;
-            float distance = 1;
-            //float distance = Hitbox.size.y * 0.8f;
-            //origin.x += _sign * Hitbox.size.x * 0.55f + (_sign * 0.1f);
-            //origin.y += Hitbox.size.y * 0.4f + Hitbox.offset.y;
-
-            //Debug.DrawRay(origin, Vector3.down * distance, Color.red);
-            return Physics2D.Raycast(origin, Vector2.down, distance).collider;
-        }
-
-        private Collider2D ComputeHorizontalRaycast()
-        {
-            Vector2 origin = transform.position;
-            //origin.y -= Hitbox.size.y * 0.55f - Hitbox.offset.y;
-            //origin.x -= Hitbox.size.x * 0.4f;
-            //float distance = Hitbox.size.x * 0.8f;
-            float distance = 1;
-            Debug.DrawRay(origin, Vector3.right * distance, Color.red);
-
-            RaycastHit2D hitInfo = Physics2D.Raycast(origin, Vector2.right, distance);
-
-            return hitInfo.collider;
-        }
-
-
         #endregion
     }
 }

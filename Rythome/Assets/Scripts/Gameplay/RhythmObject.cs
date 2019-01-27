@@ -36,13 +36,14 @@ namespace Rhythome.Gameplay
             SpriteRenderer sprite;
             if(sprite = GetComponent<SpriteRenderer>())
             {
-                m_ZOrder = sprite.sortingLayerID;
+                m_ZOrder = SortingLayer.GetLayerValueFromID(sprite.sortingLayerID);
             }
 
             if ((m_Source = GetComponent<AudioSource>()) == null)
             {
                 m_Source = gameObject.AddComponent<AudioSource>();
                 m_Source.spatialize = true;
+                m_Source.spatialBlend = 0.5f;
             }
 
             m_Animator = GetComponent<Animator>();
@@ -71,7 +72,10 @@ namespace Rhythome.Gameplay
 
         public virtual void UpdateBPM(float _newBPMScale)
         {
-            m_Animator.speed = _newBPMScale;
+            if(m_Animator)
+            {
+                m_Animator.speed = _newBPMScale;
+            }
         }
 
         public virtual void RythmoPlay1()

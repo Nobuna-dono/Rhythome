@@ -254,6 +254,7 @@ namespace Rhythome.Gameplay
                 m_CurrentMark = 0;
             }
         }
+
         #endregion
 
     }

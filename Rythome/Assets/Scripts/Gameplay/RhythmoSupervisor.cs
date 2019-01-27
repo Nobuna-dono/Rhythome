@@ -8,7 +8,7 @@ namespace Rhythome.Gameplay
     public class RhythmoSupervisor : MonoBehaviour
     {
         #region PROPERTIES
-        private float m_BPM = 60f; // 1 = 60bpm
+        private float m_BPM = 80f; // 1 = 60bpm
         public float BPM { get { return m_BPM; } }
 
         [SerializeField]
@@ -64,13 +64,21 @@ namespace Rhythome.Gameplay
         #region CUSTOM METHODS
         public void UpdateBPM(float _newBPM)
         {
-            if (_newBPM <= 1)
+            if (_newBPM <= 80)
             {
-                _newBPM = 1;
+                _newBPM = 80;
             }
 
-            if(OnTimeScaleUpdate != null)
-                OnTimeScaleUpdate((m_BPM = _newBPM) / 60f);
+            if (_newBPM > 500)
+            {
+                _newBPM = 500;
+            }
+
+            FORCED_BPM = m_BPM = _newBPM;
+            if (OnTimeScaleUpdate != null)
+            {
+                OnTimeScaleUpdate(m_BPM / 60f);
+            }
         }
         #endregion
     }

@@ -32,10 +32,6 @@ namespace Rhythome.Gameplay
 
         [SerializeField]
         private bool m_ForceTickTock = false;
-        //[SerializeField]
-        //private int TickInterval = 0;
-        //[SerializeField]
-        //private int TockInterval = 0;
 
 
         [SerializeField]
@@ -184,6 +180,17 @@ namespace Rhythome.Gameplay
                 gameObject.layer = 0;
             }
         }
+
+        //public void IncreaseBPM()
+        //{
+        //    if(m_BeatMode)
+        //        ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM + 5f);
+        //}
+        //public void DownBPM()
+        //{
+        //    if(!m_BeatMode)
+        //        ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM - 5f);
+        //}
         #endregion
     }
 }

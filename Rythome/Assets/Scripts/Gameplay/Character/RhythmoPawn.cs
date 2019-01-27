@@ -246,13 +246,13 @@ namespace Rhythome.Gameplay
                 Synchronizer.StartBeat();
                 GetComponent<SpriteRenderer>().enabled = false;
             }
-            else
+            /*else
             {
                 if(Synchronizer)
                     Synchronizer.AddNote(RhythmoSynchronizer.EMarkType.Back);
                 Synchronizer = null;
                 GetComponent<SpriteRenderer>().enabled = true;
-            }
+            }*/
         }
 
         public void PlayNote(int _note)
@@ -296,9 +296,20 @@ namespace Rhythome.Gameplay
 
             if (!m_AlwaysEnableTickSound)
             {
-                RythmoPlay1();
+                RythmoPlay1();  
             }
         }
         #endregion
+
+        public void IncreaseBPM()
+        {
+            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM + 5f);
+        }
+        public void DownBPM()
+        {
+            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM - 5f);
+        }
+
     }
+
 }

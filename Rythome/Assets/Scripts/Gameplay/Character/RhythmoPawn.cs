@@ -108,6 +108,7 @@ namespace Rhythome.Gameplay
                     LinkSRStation.EnableFeedback(true);
                     EnableFeedback(true);
                     CanSyncBeat = true;
+                    gameObject.layer = LayerMask.NameToLayer("Default");
                 }
             }
             else if (m_CurrentState == ERhythmoPawnState.FaceUp)
@@ -117,6 +118,7 @@ namespace Rhythome.Gameplay
                     LinkSRStation.EnableFeedback(true);
                     EnableFeedback(true);
                     CanSyncBeat = true;
+                    gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
                 }
             }
             else

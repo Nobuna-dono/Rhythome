@@ -197,7 +197,7 @@ namespace Rhythome.Gameplay
 
         void PlayNote()
         {
-            if (RhythmPattern.Count == 0)
+            if (RhythmPattern.Count == 0 || RhythmPattern.Count <= m_CurrentMark)
                 return;
 
             switch (RhythmPattern[m_CurrentMark].Note)

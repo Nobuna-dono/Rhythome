@@ -31,13 +31,6 @@ namespace Rhythome.Gameplay
         float CurrentTimeBuffer = 0;
         #endregion
 
-        // Use this for initialization
-        void Start()
-        {
-            //m_RythmObjects = new List<RythmObject>();
-            //m_RythmObjects.AddRange(FindObjectsOfType<RythmObject>());
-        }
-
         // Update is called once per frame
         void Update()
         {

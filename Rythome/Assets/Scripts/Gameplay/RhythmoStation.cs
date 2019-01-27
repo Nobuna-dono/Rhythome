@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using Rhythome.Core;
+
 namespace Rhythome.Gameplay
 {
     public class RhythmoStation : RhythmObject
@@ -36,28 +38,37 @@ namespace Rhythome.Gameplay
         {
             base.Start();
 
-            if((m_Source = GetComponent<AudioSource>() ) == null)
+            if ((m_Source = GetComponent<AudioSource>()) == null)
             {
                 m_Source = gameObject.AddComponent<AudioSource>();
                 m_Source.spatialize = true;
             }
+
+            StopBeat();
         }
         #endregion
 
         #region RHYTHOME METHODS
         public override void StartBeat()
         {
-           StationState.SetData((int)ERhythmoStationState.Idle_BeatOn, m_Animator);
+            StationState.SetData((int)ERhythmoStationState.Idle_BeatOn, m_Animator);
+            ServiceSupervisor.Instance.Rythm.OnHalfBeat += HalfBeat;
         }
 
         public override void StopBeat()
         {
+            ServiceSupervisor.Instance.Rythm.OnHalfBeat -= HalfBeat;
             StationState.SetData((int)ERhythmoStationState.Idle_BeatOff, m_Animator);
+        }
+
+        protected override void HalfBeat()
+        {
+            StationState.SetData((int)ERhythmoStationState.Idle_BeatOn, m_Animator);
         }
 
         public override void RythmoPlay1()
         {
-            if(m_Data.Rythm1)
+            if (m_Data.Rythm1)
             {
                 StationState.SetData((int)ERhythmoStationState.RhythmPlay1, m_Animator);
 
@@ -72,7 +83,7 @@ namespace Rhythome.Gameplay
 
         public override void RythmoPlay2()
         {
-            if(m_Data.Rythm2)
+            if (m_Data.Rythm2)
             {
                 StationState.SetData((int)ERhythmoStationState.RhythmPlay2, m_Animator);
                 if (m_Data.Rythm2)

@@ -68,11 +68,11 @@ namespace Rhythome.Gameplay
             ServiceSupervisor.Instance.Rythm.OnHalfBeat -= HalfBeat;
             ServiceSupervisor.Instance.Rythm.OnHalfBeat += HalfBeat;
 
-            //ShakingObject demo = GetComponent<ShakingObject>();
-            //if(demo)
-            //{
-            //    demo.enabled = true;
-            //}
+            ShakingObject demo = GetComponent<ShakingObject>();
+            if (demo)
+            {
+                demo.enabled = true;
+            }
         }
 
         public override void StopBeat()
@@ -81,11 +81,11 @@ namespace Rhythome.Gameplay
             ServiceSupervisor.Instance.Rythm.OnHalfBeat -= HalfBeat;
             StationState.SetData((int)ERhythmoStationState.Idle_BeatOff, m_Animator);
 
-            //ShakingObject demo = GetComponent<ShakingObject>();
-            //if(demo)
-            //{
-            //    demo.enabled = false;
-            //}
+            ShakingObject demo = GetComponent<ShakingObject>();
+            if (demo)
+            {
+                demo.enabled = false;
+            }
         }
 
         protected override void Beat()

@@ -303,11 +303,11 @@ namespace Rhythome.Gameplay
 
         public void IncreaseBPM()
         {
-            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM + 20f);
+            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM + 20);
         }
         public void DownBPM()
         {
-            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM - 20f);
+            ServiceSupervisor.Instance.Rythm.UpdateBPM(ServiceSupervisor.Instance.Rythm.BPM - 20);
         }
 
         public void Quit()

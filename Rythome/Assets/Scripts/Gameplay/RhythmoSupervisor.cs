@@ -8,12 +8,16 @@ namespace Rhythome.Gameplay
     public class RhythmoSupervisor : MonoBehaviour
     {
         #region PROPERTIES
-        private float m_BPM = 80f; // 1 = 60bpm
-        public float BPM { get { return m_BPM; } }
+        private int m_BPM = 80; // 1 = 60bpm
+        public int BPM { get { return m_BPM; } }
 
         [SerializeField]
-        [Range(1f, 320f)]
-        private float FORCED_BPM = 60f;
+        private int MaxBMP = 500;
+        [SerializeField]
+        private int MinBMP = 80;
+        [SerializeField]
+        [Range(1, 320)]
+        private int FORCED_BPM = 60;
 
         public Material m_GhostMaterial;
 
@@ -62,17 +66,9 @@ namespace Rhythome.Gameplay
         }
 
         #region CUSTOM METHODS
-        public void UpdateBPM(float _newBPM)
+        public void UpdateBPM(int _newBPM)
         {
-            if (_newBPM <= 80)
-            {
-                _newBPM = 80;
-            }
-
-            if (_newBPM > 500)
-            {
-                _newBPM = 500;
-            }
+            Mathf.Clamp(_newBPM, MinBMP, MaxBMP);
 
             FORCED_BPM = m_BPM = _newBPM;
             if (OnTimeScaleUpdate != null)

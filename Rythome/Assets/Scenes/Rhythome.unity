@@ -1356,7 +1356,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e14b8c39a6d2645419a4a1b15a0340d9, type: 2}
+      objectReference: {fileID: 9100000, guid: ab5676e4671e0d745b51ecea9b7add71, type: 2}
     - target: {fileID: 212821710552354760, guid: d92f959613f516a4980436958c59d59e,
         type: 2}
       propertyPath: m_SortingLayerID
@@ -1382,6 +1382,85 @@ Prefab:
       propertyPath: Rythm2
       value: 
       objectReference: {fileID: 8300000, guid: 7865a6f91707aed45a4b2274e07f86d4, type: 3}
+    - target: {fileID: 114630137838394876, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: Rythm2
+      value: 
+      objectReference: {fileID: 8300000, guid: bc3786e04acb0124c9cda1e19a45dd61, type: 3}
+    - target: {fileID: 95991648711148128, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e14b8c39a6d2645419a4a1b15a0340d9, type: 2}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 114630137838394876, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: StationState.ParameterName
+      value: State
+      objectReference: {fileID: 0}
+    - target: {fileID: 4264363211134754, guid: d92f959613f516a4980436958c59d59e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.356
+      objectReference: {fileID: 0}
+    - target: {fileID: 61781311203327974, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 61305206283826514, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.234375
+      objectReference: {fileID: 0}
+    - target: {fileID: 61781311203327974, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 61781311203327974, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 114296191100045570, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: StationState.ParameterName
+      value: State
+      objectReference: {fileID: 0}
+    - target: {fileID: 61853517492067186, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.17063922
+      objectReference: {fileID: 0}
+    - target: {fileID: 61853517492067186, guid: d92f959613f516a4980436958c59d59e,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.1430966
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d92f959613f516a4980436958c59d59e, type: 2}
   m_IsPrefabParent: 0
